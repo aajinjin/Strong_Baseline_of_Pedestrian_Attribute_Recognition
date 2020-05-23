@@ -28,7 +28,7 @@ Considering the big performance gap of various SOTA baseline, we provide a solid
 - We try our best to reimplement [MsVAA](https://github.com/cvcode18/imbalanced_learning), [VAC](https://github.com/hguosc/visual_attention_consistency) and thanks to their code.
 - We also try our best to reimplement ALM and try to contact the authors, but no reply received.
 
-![BaselinePerf](https://github.com/valencebond/Strong_Baseline_of_Pedestrian_Attribute_Recognition/blob/master/imgs/SOTA.png)
+![BaselinePerf](https://github.com/valencebond/Strong_Baseline_of_Pedestrian_Attribute_Recognition/blob/master/imgs/baseline.png)
 
 
 
@@ -54,7 +54,7 @@ Considering the big performance gap of various SOTA baseline, we provide a solid
 - ALM (ICCV19) Improving Pedestrian Attribute Recognition With Weakly-Supervised Multi-Scale Attribute-Speciﬁc Localization.
 
 
-#### Dataset Info
+## Dataset Info
 PETA: Pedestrian Attribute Recognition At Far Distance [[Paper](http://mmlab.ie.cuhk.edu.hk/projects/PETA_files/Pedestrian%20Attribute%20Recognition%20At%20Far%20Distance.pdf)][[Project](http://mmlab.ie.cuhk.edu.hk/projects/PETA.html)]
 
 PA100K[[Paper](http://openaccess.thecvf.com/content_ICCV_2017/papers/Liu_HydraPlus-Net_Attentive_Deep_ICCV_2017_paper.pdf)][[Github](https://github.com/xh-liu/HydraPlus-Net)]
@@ -64,7 +64,7 @@ RAP : A Richly Annotated Dataset for Pedestrian Attribute Recognition
 - v2.0 [[Paper](https://ieeexplore.ieee.org/abstract/document/8510891)][[Project](http://www.rapdataset.com/)]
 
 
-#### Get Started
+## Get Started
 1. Run `git clone https://github.com/valencebond/Strong_Baseline_of_Pedestrian_Attribute_Recognition.git`
 2. Create a directory to dowload above datasets. 
     ```
