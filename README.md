@@ -16,6 +16,7 @@ Considering the big performance gap of various SOTA baseline, we provide a solid
 - sample-wise loss not label-wise loss
 - big learning rate combined with clip_grad_norm
 - augmentation Pad combined with RandomCrop
+- add BN after classifier layer
 
 
 ## Performance Comparision
@@ -27,7 +28,7 @@ Considering the big performance gap of various SOTA baseline, we provide a solid
 - We try our best to reimplement [MsVAA](https://github.com/cvcode18/imbalanced_learning), [VAC](https://github.com/hguosc/visual_attention_consistency) and thanks to their code.
 - We also try our best to reimplement ALM and try to contact the authors, but no reply received.
 
-![BaselinePerf](https://github.com/valencebond/Strong_Baseline_of_Pedestrian_Attribute_Recognition/imgs/baseline.png)
+![BaselinePerf](https://github.com/valencebond/Strong_Baseline_of_Pedestrian_Attribute_Recognition/blob/master/imgs/SOTA.png)
 
 
 
@@ -35,7 +36,7 @@ Considering the big performance gap of various SOTA baseline, we provide a solid
 
 - Compared with performance of recent state-of-the-art methods, the performance of our baseline is comparable, even better.
 
-![SOTAPerf](https://github.com/valencebond/Strong_Baseline_of_Pedestrian_Attribute_Recognition/imgs/SOTA.png)
+![SOTAPerf](https://github.com/valencebond/Strong_Baseline_of_Pedestrian_Attribute_Recognition/blob/master/imgs/SOTA.png)
 
 
 - DeepMAR (ACPR15) Multi-attribute Learning for Pedestrian Attribute Recognition in Surveillance Scenarios.
