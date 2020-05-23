@@ -31,6 +31,8 @@ Considering the big performance gap of various SOTA baseline, we provide a solid
 ![BaselinePerf](https://github.com/valencebond/Strong_Baseline_of_Pedestrian_Attribute_Recognition/blob/master/imgs/baseline.png)
 
 
+![BaselinePerf](https://github.com/valencebond/Strong_Baseline_of_Pedestrian_Attribute_Recognition/blob/master/imgs/baseline_rap2.png)
+
 
 ### SOTA Performance
 
