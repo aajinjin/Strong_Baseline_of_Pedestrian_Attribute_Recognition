@@ -27,12 +27,12 @@ def generate_data_description(save_dir, reorder):
     create a dataset description file, which consists of images, labels
     """
 
-    data = loadmat('/mnt/data1/jiajian/datasets/attribute/RAP/RAP_annotation/RAP_annotation.mat')
+    data = loadmat(os.path.join(save_dir, 'RAP_annotation/RAP_annotation.mat'))
 
     dataset = EasyDict()
     dataset.description = 'rap'
     dataset.reorder = 'group_order'
-    dataset.root = '/mnt/data1/jiajian/datasets/attribute/RAP/RAP_dataset/'
+    dataset.root = os.path.join(save_dir, 'RAP_dataset')
     dataset.image_name = [data['RAP_annotation'][0][0][5][i][0][0] for i in range(41585)]
     raw_attr_name = [data['RAP_annotation'][0][0][3][i][0][0] for i in range(92)]
     # (41585, 92)
@@ -65,6 +65,6 @@ def generate_data_description(save_dir, reorder):
 
 
 if __name__ == "__main__":
-    save_dir = '/mnt/data1/jiajian/datasets/attribute/RAP/'
+    save_dir = './data/RAP/'
     reorder = True
     generate_data_description(save_dir, reorder)

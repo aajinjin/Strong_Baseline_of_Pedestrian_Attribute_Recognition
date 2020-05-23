@@ -4,7 +4,6 @@ import pickle
 import numpy as np
 import torch.utils.data as data
 from PIL import Image
-from torchvision import transforms
 
 from tools.function import get_pkl_rootpath
 import torchvision.transforms as T
@@ -17,7 +16,7 @@ class AttrDataset(data.Dataset):
         assert args.dataset in ['PETA', 'PETA_dataset', 'PA100k', 'RAP', 'RAP2'], \
             f'dataset name {args.dataset} is not exist'
 
-        data_path = get_pkl_rootpath(args.dataset, args)
+        data_path = get_pkl_rootpath(args.dataset)
 
         dataset_info = pickle.load(open(data_path, 'rb+'))
 

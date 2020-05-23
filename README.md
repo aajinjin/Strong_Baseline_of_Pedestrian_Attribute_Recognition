@@ -1,173 +1,111 @@
-PETA
-ma: 0.8529,  pos_recall: 0.7670 , neg_recall: 0.9389
-Acc: 0.7894, Prec: 0.8643, Rec: 0.8656, F1: 0.8622
+## A Strong Baseline of Pedestrian Attribute Recognition
 
-PETA_cosine_
-ma: 0.8475,  pos_recall: 0.7515 , neg_recall: 0.9435 
-Acc: 0.7953, Prec: 0.8795, Rec: 0.8583, F1: 0.8660
-
-PETA_base_fpnv2_bt64_maximum
-ma: 0.8512,  pos_recall: 0.7611 , neg_recall: 0.9413 
-Acc: 0.7933, Prec: 0.8713, Rec: 0.8645, F1: 0.8652
-
-PETA_base_fpnv2_alm_wostn_maximum
-ma: 0.8446,  pos_recall: 0.7483 , neg_recall: 0.9409 
-Acc: 0.7874, Prec: 0.8693, Rec: 0.8583, F1: 0.8609
-
-
-PETA new split
-ma: 0.7189,  pos_recall: 0.5642 , neg_recall: 0.8737 
-Acc: 0.5920, Prec: 0.7319, Rec: 0.7212, F1: 0.7220
-
-
-PETA_base_newsplit_fpn
-ma: 0.7200,  pos_recall: 0.5672 , neg_recall: 0.8728 
-Acc: 0.5921, Prec: 0.7310, Rec: 0.7242, F1: 0.7229
-
-
-PETA_base_newsplit_iccv
-ma: 0.7067,  pos_recall: 0.5451 , neg_recall: 0.8683
-Acc: 0.5856, Prec: 0.7297, Rec: 0.7131, F1: 0.7165
-
-
-RAP  
-ma: 0.8055,  pos_recall: 0.6762 , neg_recall: 0.9348
-Acc: 0.6862, Prec: 0.8004, Rec: 0.8091, F1: 0.8008
-
-
-ma: 0.8010,  pos_recall: 0.6657 , neg_recall: 0.9364 
-Acc: 0.6876, Prec: 0.8057, Rec: 0.8050, F1: 0.8016
+Considering the big performance gap of various SOTA baseline, we provide a solid and strong baseline for fair comparison.
 
 
 
-RAP_base_fpn
-ma: 0.8107,  pos_recall: 0.6863 , neg_recall: 0.9352 
-Acc: 0.6830, Prec: 0.7967, Rec: 0.8070, F1: 0.7980
+## Dependencies
 
-RAP_base_fpn_maximum
-ma: 0.8154,  pos_recall: 0.7013 , neg_recall: 0.9294 
-Acc: 0.6826, Prec: 0.7849, Rec: 0.8195, F1: 0.7982
+- pytorch 1.4.0
+- torchvision 0.5.0
+- tqdm 4.43.0
+- easydict 1.9
 
 
-RAP_base_fpnv2_maximum
-ma: 0.8022,  pos_recall: 0.6703 , neg_recall: 0.9341 
-Acc: 0.6859, Prec: 0.7987, Rec: 0.8102, F1: 0.8006
+## Tricks
+- sample-wise loss not label-wise loss
+- big learning rate combined with clip_grad_norm
+- augmentation Pad combined with RandomCrop
+
+
+## Performance Comparision
+
+##### Baseline Performance
+
+- Compared with baseline performance of MsVAA, VAC, ALM, our baseline make a huge performance improvement.
+- Compared with our reimplementation of MsVAA, VAC, ALM, our baseline is better.
+- We try our best to reimplement [MsVAA](https://github.com/cvcode18/imbalanced_learning), [VAC](https://github.com/hguosc/visual_attention_consistency) and thanks to their code.
+- We also try our best to reimplement ALM and try to contact the authors, but no reply received.
+
+![BaselinePerf](https://github.com/valencebond/Strong_Baseline_of_Pedestrian_Attribute_Recognition/imgs/baseline.png)
+
+
+
+##### SOTA Performance
+
+- Compared with performance of recent state-of-the-art methods, the performance of our baseline is comparable, even better.
+
+![SOTAPerf](https://github.com/valencebond/Strong_Baseline_of_Pedestrian_Attribute_Recognition/imgs/SOTA.png)
+
+
+- DeepMAR (ACPR15) Multi-attribute Learning for Pedestrian Attribute Recognition in Surveillance Scenarios.
+- HPNet (ICCV17) Hydraplus-net: Attentive deep features for pedestrian analysis.
+- JRL (ICCV17) Attribute recognition by joint recurrent learning of context and correlation.
+- LGNet (BMVC18) Localization guided learning for pedestrian attribute recognition.
+- PGDM (ICME18) Pose guided deep model for pedestrian attribute recognition in surveillance scenarios.
+- GRL (IJCAI18) Grouping Attribute Recognition for Pedestrian with Joint Recurrent Learning.
+- RA (AAAI19) Recurrent attention model for pedestrian attribute recognition.
+- VSGR (AAAI19) Visual-semantic graph reasoning for pedestrian attribute recognition.
+- VRKD (IJCAI19) Pedestrian Attribute Recognition by Joint Visual-semantic Reasoning and Knowledge Distillation.
+- AAP (IJCAI19) Attribute aware pooling for pedestrian attribute recognition.
+- MsVAA (ECCV18) Deep imbalanced attribute classification using visual attention aggregation.
+- VAC (CVPR19) Visual attention consistency under image transforms for multi-label image classification.
+- ALM (ICCV19) Improving Pedestrian Attribute Recognition With Weakly-Supervised Multi-Scale Attribute-Speciﬁc Localization.
+
+
+
+
+#### Dataset Info
+PETA: Pedestrian Attribute Recognition At Far Distance [[Paper](http://mmlab.ie.cuhk.edu.hk/projects/PETA_files/Pedestrian%20Attribute%20Recognition%20At%20Far%20Distance.pdf)][[Project](http://mmlab.ie.cuhk.edu.hk/projects/PETA.html)]
+
+PA100K[[Paper](http://openaccess.thecvf.com/content_ICCV_2017/papers/Liu_HydraPlus-Net_Attentive_Deep_ICCV_2017_paper.pdf)][[Github](https://github.com/xh-liu/HydraPlus-Net)]
+
+RAP : A Richly Annotated Dataset for Pedestrian Attribute Recognition 
+- v1.0 [[Paper](https://arxiv.org/pdf/1603.07054v3.pdf)][[Project](http://www.rapdataset.com/)]
+- v2.0 [[Paper](https://ieeexplore.ieee.org/abstract/document/8510891)][[Project](http://www.rapdataset.com/)]
+
+
+#### Get Started
+1. Run `git clone https://github.com/valencebond/Strong_Baseline_of_Pedestrian_Attribute_Recognition.git`
+2. Create a directory to dowload above datasets. 
+    ```
+    cd Strong_Baseline_of_Pedestrian_Attribute_Recognition
+    mkdir data
+
+    ```
+- Prepare datasets to have following structure:
+    ```
+    ${project_dir}/data
+        PETA
+            images/
+            PETA.mat
+            README
+        PA100k
+            data/
+            annotation.mat
+            README.txt
+        RAP
+            RAP_dataset/
+            RAP_annotation/
+        RAP2
+            RAP_dataset/
+            RAP_annotation/
+    ```
+- Run the `format_xxxx.py` to generate `dataset.pkl` respectively
+    ```
+    python ./dataset/preprocess/format_peta.py
+    python ./dataset/preprocess/format_pa100k.py
+    python ./dataset/preprocess/format_rap.py
+    python ./dataset/preprocess/format_rap2.py
+    ``` 
+- Train baseline based on resnet50
+    ```
+    CUDA_VISIBLE_DEVICES=0 python train.py PETA
+    ``` 
  
-RAP_base_fpnv2_alm_wostn_maximum
-ma: 0.8025,  pos_recall: 0.6707 , neg_recall: 0.9344
-Acc: 0.6828, Prec: 0.7975, Rec: 0.8072, F1: 0.7984
+## Reference
 
-RAP_base_fpnv2_512d_maximum [512, 512, 512]
-ma: 0.8042,  pos_recall: 0.6747 , neg_recall: 0.9336
-Acc: 0.6826, Prec: 0.7961, Rec: 0.8079, F1: 0.7981
-
-RAP_base_fpnv2_alm_256d_maximum 32batchsize
-ma: 0.7859,  pos_recall: 0.6424 , neg_recall: 0.9295
-Acc: 0.6767, Prec: 0.7879, Rec: 0.8096, F1: 0.7943
-
-
-
-RAPv2 new split
-ma: 0.7256,  pos_recall: 0.5229 , neg_recall: 0.9283
-Acc: 0.6511, Prec: 0.7816, Rec: 0.7782, F1: 0.7754
-
-
-RAPv2 
-ma: 0.7934,  pos_recall: 0.6547 , neg_recall: 0.9321 
-Acc: 0.6718, Prec: 0.7840, Rec: 0.8045, F1: 0.7904
-
-
-RAP2_base_newsplit_iccv
-ma: 0.7197,  pos_recall: 0.5129 , neg_recall: 0.9264 
-Acc: 0.6452, Prec: 0.7728, Rec: 0.7774, F1: 0.7706
-
-RAP2_base_iccv
-ma: 0.7821,  pos_recall: 0.6328 , neg_recall: 0.9313
-Acc: 0.6698, Prec: 0.7825, Rec: 0.8043, F1: 0.7893
-
-
-PA100k
-ma: 0.8101,  pos_recall: 0.6836 , neg_recall: 0.9366 
-Acc: 0.7871, Prec: 0.8701, Rec: 0.8712, F1: 0.8667
-
-
-PETA_base_iccv
-ma: 0.8424,  pos_recall: 0.7487 , neg_recall: 0.9361
-Acc: 0.7784, Prec: 0.8579, Rec: 0.8560, F1: 0.8541
-
-
-RAP_base_iccv
-ma: 0.7916,  pos_recall: 0.6538 , neg_recall: 0.9295
-Acc: 0.6799, Prec: 0.7884, Rec: 0.8135, F1: 0.7966
-
-
-baseline 4.05G 23.61M
-
-FPN_ALM 4.33G 26.486M
-
-4.316G 30.855M
-
-
-
-PETA_base_bninception_tfs
-
- ma: 0.8264,  pos_recall: 0.7216 , neg_recall: 0.9311
- Acc: 0.7546, Prec: 0.8462, Rec: 0.8361, F1: 0.8375
- 
- fpn
- 
- ma: 0.8333,  pos_recall: 0.7314 , neg_recall: 0.9353 
- Acc: 0.7726, Prec: 0.8582, Rec: 0.8490, F1: 0.8503
- 
- 
- adam fpn STN
-  ma: 0.8362,  pos_recall: 0.7339 , neg_recall: 0.9385
- Acc: 0.7721, Prec: 0.8626, Rec: 0.8457, F1: 0.8506
- 
- 
-最基础的是
-
-lr1e4,without_pad,256 128
-
-
-PETA_base_1e4
-ma: 0.7593,  pos_recall: 0.6064 , neg_recall: 0.9122
-Acc: 0.6884, Prec: 0.8102, Rec: 0.7840, F1: 0.7918
-
-PETA_base_1e3
-ma: 0.8032,  pos_recall: 0.6791 , neg_recall: 0.9274
-Acc: 0.7383, Prec: 0.8433, Rec: 0.8181, F1: 0.8267
-
-PETA_base_5e3
-ma: 0.8345,  pos_recall: 0.7280 , neg_recall: 0.9411
-Acc: 0.7777, Prec: 0.8696, Rec: 0.8447, F1: 0.8538
-
-PETA_base_1e2
-ma: 0.8398,  pos_recall: 0.7415 , neg_recall: 0.9381
-Acc: 0.7791, Prec: 0.8635, Rec: 0.8529, F1: 0.8552
-
-PETA_base_1e2_192_pad
-ma: 0.8496,  pos_recall: 0.7555 , neg_recall: 0.9436
-Acc: 0.7946, Prec: 0.8764, Rec: 0.8614, F1: 0.8660
-
-PETA_base_1e2_1e1
-ma: 0.8345,  pos_recall: 0.7339 , neg_recall: 0.9350
-Acc: 0.7737, Prec: 0.8599, Rec: 0.8478, F1: 0.8509
-
-PETA_base_1e2_1e1_192
-ma: 0.8362,  pos_recall: 0.7361 , neg_recall: 0.9364
-Acc: 0.7731, Prec: 0.8592, Rec: 0.8474, F1: 0.8504
-
-PETA_base_1e2_1e1_192_pad
-ma: 0.8513,  pos_recall: 0.7645 , neg_recall: 0.9382
-Acc: 0.7885, Prec: 0.8652, Rec: 0.8636, F1: 0.8617
-
-PETA_cosine_1e2_192_pad
-ma: 0.8470,  pos_recall: 0.7509 , neg_recall: 0.9431
-Acc: 0.7956, Prec: 0.8786, Rec: 0.8589, F1: 0.8660
-
-PETA_base_1e2_192
-ma: 0.8375,  pos_recall: 0.7342 , neg_recall: 0.9408
-Acc: 0.7843, Prec: 0.8713, Rec: 0.8527, F1: 0.8590
+- https://github.com/dangweili/pedestrian-attribute-recognition-pytorch
+- https://github.com/huanghoujing/EANet
 
 

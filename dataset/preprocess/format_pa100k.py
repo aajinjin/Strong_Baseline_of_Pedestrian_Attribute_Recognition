@@ -23,12 +23,13 @@ def generate_data_description(save_dir, reorder):
     """
     create a dataset description file, which consists of images, labels
     """
-    pa100k_data = loadmat('/mnt/data1/jiajian/datasets/attribute/PA100k/annotation.mat')
+    # pa100k_data = loadmat('/mnt/data1/jiajian/dataset/attribute/PA100k/annotation.mat')
+    pa100k_data = loadmat(os.path.join(save_dir, 'annotation.mat'))
 
     dataset = EasyDict()
     dataset.description = 'pa100k'
     dataset.reorder = 'group_order'
-    dataset.root = '/mnt/data1/jiajian/datasets/attribute/PA100k/data/'
+    dataset.root = os.path.join(save_dir, 'data')
 
     train_image_name = [pa100k_data['train_images_name'][i][0][0] for i in range(80000)]
     val_image_name = [pa100k_data['val_images_name'][i][0][0] for i in range(10000)]
@@ -58,6 +59,6 @@ def generate_data_description(save_dir, reorder):
 
 if __name__ == "__main__":
 
-    save_dir = '/mnt/data1/jiajian/datasets/attribute/PA100k/'
+    save_dir = './data/PA100k/'
     reoder = True
     generate_data_description(save_dir, reorder=True)

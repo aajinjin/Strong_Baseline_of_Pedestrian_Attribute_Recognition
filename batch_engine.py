@@ -58,7 +58,6 @@ def valid_trainer(model, valid_loader, criterion):
 
     preds_probs = []
     gt_list = []
-    img_name = []
     with torch.no_grad():
         for step, (imgs, gt_label, imgname) in enumerate(tqdm(valid_loader)):
             imgs = imgs.cuda()
@@ -66,8 +65,7 @@ def valid_trainer(model, valid_loader, criterion):
             gt_list.append(gt_label.cpu().numpy())
             gt_label[gt_label == -1] = 0
             valid_logits = model(imgs)
-            valid_loss, label_loss = criterion(valid_logits, gt_label)
-            img_name.append(imgname)
+            valid_loss = criterion(valid_logits, gt_label)
             valid_probs = torch.sigmoid(valid_logits)
             preds_probs.append(valid_probs.cpu().numpy())
             loss_meter.update(to_scalar(valid_loss))
@@ -76,4 +74,4 @@ def valid_trainer(model, valid_loader, criterion):
 
     gt_label = np.concatenate(gt_list, axis=0)
     preds_probs = np.concatenate(preds_probs, axis=0)
-    return valid_loss, gt_label, preds_probs, img_name
+    return valid_loss, gt_label, preds_probs

@@ -9,10 +9,10 @@ from torch.utils.data import DataLoader
 
 from batch_engine import valid_trainer, batch_trainer
 from config import argument_parser
-from datasets.AttrDataset import AttrDataset, get_transform
+from dataset.AttrDataset import AttrDataset, get_transform
 from loss.CE_loss import CEL_Sigmoid
-from models import model_factory
-from models.base_block import FeatClassifier
+from models.base_block import FeatClassifier, BaseClassifier
+from models.resnet import resnet50
 from tools.function import get_model_log_path, get_pedestrian_metrics
 from tools.utils import time_str, save_ckpt, ReDirectSTD, set_seed
 
@@ -20,7 +20,7 @@ set_seed(605)
 
 
 def main(args):
-    visenv_name = args.dataset + args.feat_arch
+    visenv_name = args.dataset
     exp_dir = os.path.join('exp_result', args.dataset)
     model_dir, log_dir = get_model_log_path(exp_dir, visenv_name)
     stdout_file = os.path.join(log_dir, f'stdout_{time_str()}.txt')
@@ -65,10 +65,8 @@ def main(args):
     labels = train_set.label
     sample_weight = labels.mean(0)
 
-    backbone = getattr(model_factory, args.feat_arch)()
-    classifier = getattr(model_factory, args.classifier)(
-        nattr=train_set.attr_num,
-    )
+    backbone = resnet50()
+    classifier = BaseClassifier(nattr=train_set.attr_num)
     model = FeatClassifier(backbone, classifier)
 
     if torch.cuda.is_available():
@@ -148,30 +146,8 @@ def trainer(epoch, model, train_loader, valid_loader, criterion, optimizer, lr_s
 if __name__ == '__main__':
     parser = argument_parser()
     args = parser.parse_args()
-
-    if args.debug:
-        args.dataset = 'PETA'
-
-        args.attr_weighted = False
-        args.sample_weighted = True
-        args.weight_func = 'cvpr2020'
-        args.new_split = False
-
-        args.alm = False
-        args.feat_block = False
-
-        args.device = '0,1'
-        args.height = 256
-        args.width = 192
-        args.lr_ft = 0.01
-        args.lr_new = 0.01
-        args.batchsize = 64
-        args.feat_arch = 'resnet50'
-        args.classifier = 'base'
-        args.weight_decay = 5e-4
-
-    os.environ['CUDA_VISIBLE_DEVICES'] = args.device
     main(args)
+
     # os.path.abspath()
 
 """

@@ -90,5 +90,5 @@
   <component name="PreferredVcsStorage">
     <preferredVcsName>ApexVCS</preferredVcsName>
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="torch12 (sftp://jiajian@172.18.40.21:22/home/jiajian/anaconda3/envs/torch12/bin/python)" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="torch14 (sftp://jiajian@172.18.40.21:22/home/jiajian/anaconda3/envs/torch14/bin/python)" project-jdk-type="Python SDK" />
 </project>

@@ -1,11 +1,7 @@
 import math
 
-import torch
 import torch.nn as nn
-import torch.nn.functional as F
 from torch.nn.modules.batchnorm import _BatchNorm
-
-from models.resnet import resnet50
 
 
 class BaseClassifier(nn.Module):
@@ -49,11 +45,11 @@ class FeatClassifier(nn.Module):
         self.classifier = classifier
 
     def fresh_params(self):
-        params = list(self.backbone.fresh_params()) + list(self.classifier.fresh_params())
+        params = self.classifier.fresh_params()
         return params
 
     def finetune_params(self):
-        return list(self.backbone.finetune_params())
+        return self.backbone.parameters()
 
     def forward(self, x, label=None):
         feat_map = self.backbone(x)
