@@ -21,7 +21,7 @@ Considering the big performance gap of various SOTA baseline, we provide a solid
 
 ## Performance Comparision
 
-##### Baseline Performance
+### Baseline Performance
 
 - Compared with baseline performance of MsVAA, VAC, ALM, our baseline make a huge performance improvement.
 - Compared with our reimplementation of MsVAA, VAC, ALM, our baseline is better.
@@ -32,7 +32,7 @@ Considering the big performance gap of various SOTA baseline, we provide a solid
 
 
 
-##### SOTA Performance
+### SOTA Performance
 
 - Compared with performance of recent state-of-the-art methods, the performance of our baseline is comparable, even better.
 
@@ -52,8 +52,6 @@ Considering the big performance gap of various SOTA baseline, we provide a solid
 - MsVAA (ECCV18) Deep imbalanced attribute classification using visual attention aggregation.
 - VAC (CVPR19) Visual attention consistency under image transforms for multi-label image classification.
 - ALM (ICCV19) Improving Pedestrian Attribute Recognition With Weakly-Supervised Multi-Scale Attribute-Speciﬁc Localization.
-
-
 
 
 #### Dataset Info
